@@ -1,3 +1,5 @@
+'use strict';
+
 var style = {
   position: 'absolute',
   bottom: '0',
@@ -25,4 +27,4 @@ var div = document.createElement("div");
 document.body.appendChild(div);
 render( /*#__PURE__*/React.createElement(Link, null), div);
 
-export { Link as default };
+module.exports = Link;
