@@ -2,11 +2,12 @@
   "name": "learn-rollup",
   "version": "1.0.0",
   "description": "Bundling Your JavaScript Library with Rollup",
-  "main": "index.js",
+  "main": "dist/build.cjs.js",
+  "browser": "dist/build.umd.js",
+  "module": "dist/build.js",
   "scripts": {
     "start": "watch 'npm run build' src",
-    "build": "rollup --config",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c"
   },
   "author": "Fang Jin",
   "license": "ISC",

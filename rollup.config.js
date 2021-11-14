@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import babel from '@rollup/plugin-babel'
 import { terser } from 'rollup-plugin-terser'
+import pkg from './package.json'
 
 const exportName = 'drh'
 const babelOptions = {
@@ -14,7 +15,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/build.js',
+      file: pkg.module,
       format: 'es',
     },
     plugins: [
@@ -25,7 +26,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/build.cjs.js',
+      file: pkg.main,
       format: 'cjs',
       exports: 'auto',
     },
@@ -37,7 +38,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/build.umd.js',
+      file: pkg.browser,
       format: 'umd',
       name: exportName,
     },
@@ -51,7 +52,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/build.umd.min.js',
+      file: pkg.browser.replace(/\.js$/, '.min.js'),
       format: 'umd',
       name: exportName,
     },
